@@ -1,7 +1,7 @@
 import React from 'react'
 import {useDispatch} from 'react-redux'
 import {addNewAnecdote} from '../reducers/anecdoteReducer'
-
+import { notificationChange } from '../reducers/notificationReducer'
 
 const AnecdotesForm=(props)=>{ 
     const dispatch=useDispatch()
@@ -10,7 +10,9 @@ const AnecdotesForm=(props)=>{
       event.preventDefault()
       const content=event.target.anec.value
       event.target.anec.value=''
-      dispatch(addNewAnecdote(content))
+      dispatch(addNewAnecdote(content),
+      notificationChange(`you have created '${content}'`))
+      
     }
     return (
       <div>
@@ -20,7 +22,7 @@ const AnecdotesForm=(props)=>{
         <button type='submit'>create</button>
         </form>
         </div>
-    )
+    ) 
 
     }
     export default AnecdotesForm
