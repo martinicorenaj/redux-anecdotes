@@ -38,7 +38,8 @@ return  (
     key={anecdote.id}
     anecdote={anecdote}
     handleClick={() => {dispatch(voteAnecdote(anecdote.id))
-                                  dispatch(notificationChange(`you have voted '${anecdote.content}'`))}
+                                  dispatch(notificationChange(`you have voted '${anecdote.content}'`))
+                                  setTimeout(()=>dispatch(notificationChange('')),5000)}
     }
     />    
     )}
